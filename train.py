@@ -98,7 +98,7 @@ def main():
     if args.device == "cpu":
         backend = gs.cpu # type: ignore
         torch.set_default_device("cpu")
-    gs.init(logging_level="warning", backend=gs.vulkan, performance_mode=True)
+    gs.init(logging_level="warning", backend=gs.backend, performance_mode=True)
 
     # Logging directory
     log_base_dir = "./logs"

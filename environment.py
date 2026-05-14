@@ -132,7 +132,7 @@ class BipedoEnv(ManagedEnvironment):
             range={#type: ignore
                 "lin_vel_x": [0.0, 0.7],
                 "lin_vel_y": [0.0, 0.0],
-                "ang_vel_z": [-0.5, 0.5],
+                "ang_vel_z": [-0.3, 0.3],
             },
             standing_probability=0.02,
             resample_time_sec=5.0,
@@ -155,7 +155,7 @@ class BipedoEnv(ManagedEnvironment):
             logging_enabled=True,
             cfg={ #type: ignore
                 "tracking_lin_vel": {
-                    "weight": 1.0,
+                    "weight": 2.0,
                     "fn": rewards.command_tracking_lin_vel,
                     "params": {
                         "vel_cmd_manager": self.velocity_command,
@@ -178,18 +178,18 @@ class BipedoEnv(ManagedEnvironment):
                     },
                 },
                 "ang_vel_xy_l2": {
-                    "weight": -0.05,
+                    "weight": -0.09,
                     "fn": rewards.ang_vel_xy_l2,
                     "params": {
                         "entity_manager": self.robot_manager,
                     },
                 },
                 "action_rate": {
-                    "weight": -0.005,
+                    "weight": -0.009,
                     "fn": rewards.action_rate_l2,
                 },
                 "similar_to_default": {
-                    "weight": -0.09,
+                    "weight": -0.1,
                     "fn": rewards.dof_similar_to_default,
                     "params": {
                         "action_manager": self.action_manager,
@@ -199,7 +199,7 @@ class BipedoEnv(ManagedEnvironment):
                     "weight": 1.0,
                     "fn": rewards.feet_air_time,
                     "params": {
-                        "time_threshold": 0.2,
+                        "time_threshold": 0.3,
                         "time_threshold_max": 0.5,
                         "contact_manager": self.feet_contact_manager,
                         "vel_cmd_manager": self.velocity_command,
@@ -230,8 +230,8 @@ class BipedoEnv(ManagedEnvironment):
                     "fn": terminations.bad_orientation,
                     "params": {
                         "entity_manager": self.robot_manager,
-                        "limit_angle": 15.0,
-                        "grace_steps": 5,
+                        "limit_angle": 9.8,
+                        "grace_steps": 3,
                     },
                 },
             },
