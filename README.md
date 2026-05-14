@@ -240,8 +240,7 @@ tensorboard --logdir=./logs
 > - Velocidad de desplazamiento del robot
 > - Número de pasos de entrenamiento completados
 
----
-
+```
 ## Estructura del Proyecto
 Robot_Bipedo_USC/
 ├── train.py                      # Script principal de entrenamiento
@@ -268,8 +267,7 @@ Robot_Bipedo_USC/
 ├── events.out.tfevents   # Datos para TensorBoard
 ├── videos/               # Videos capturados durante entrenamiento
 └── cfgs.pkl              # Configuración guardada del experimento
-
----
+```
 
 ## Configuración de Parámetros
 
